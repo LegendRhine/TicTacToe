@@ -31,8 +31,7 @@ public:
     //=====================================================================
     void initialise (const String& /*commandLine*/)
     {
-        LookAndFeel::getDefaultLookAndFeel().
-            setDefaultSansSerifTypefaceName(L"Î¢ÈíÑÅºÚ");
+        LookAndFeel::getDefaultLookAndFeel().setDefaultSansSerifTypefaceName("Microsoft YaHei");
         mainWindow = new MainAppWindow();
     }
 

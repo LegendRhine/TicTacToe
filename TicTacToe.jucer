@@ -6,9 +6,9 @@
     <VS2015 targetFolder="Builds/VisualStudio2015" smallIcon="xITiOS" bigIcon="xITiOS">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="1" optimisation="1" targetName="TicTacToe"/>
+                       isDebug="1" optimisation="1" targetName="TicTacToe" binaryPath="Application"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       isDebug="0" optimisation="2" targetName="TicTacToe"/>
+                       isDebug="0" optimisation="2" targetName="TicTacToe" binaryPath="Application"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_basics" path="..\..\JUCE\modules"/>
