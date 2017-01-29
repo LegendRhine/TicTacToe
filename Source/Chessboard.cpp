@@ -661,3 +661,4 @@ void Chessboard::playSound(SoundName soundName)
 
     soundPlayer.play(audioStream);
 }
+

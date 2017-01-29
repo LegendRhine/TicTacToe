@@ -73,7 +73,7 @@ private:
     class ChessPiece : public Component
     {
     public:
-        ChessPiece(bool isHuman) : human(isHuman), value(0), first(false)  
+        ChessPiece(bool isHuman) : value(0), human(isHuman), first(false)  
         {
             sound.play(new MemoryInputStream
                 (BinaryData::human_mp3, BinaryData::human_mp3Size, false));
