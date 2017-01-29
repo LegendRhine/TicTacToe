@@ -210,7 +210,7 @@ void Chessboard::addAndShow(const int thisValue, bool isHuman)
     else if (6 == thisValue) { posX = chessSize * 2; posY = chessSize * 2;}
 
     // the element add to array. set its value..
-    chess.add(new ChessPiece(isHuman));
+    chess.add(new ChessPiece(isHuman, soundPlayer));
     chess.getLast()->setValue(thisValue);
 
     // display on chessboard..
@@ -626,39 +626,30 @@ void Chessboard::setFirst(const bool isFirst)
 //=====================================================================================
 void Chessboard::playSound(SoundName soundName)
 {
-    MemoryInputStream* audioStream = nullptr;
-
     switch (soundName)
     {
     case LOST: 
-        audioStream = new MemoryInputStream
-            (BinaryData::lost_mp3, BinaryData::lost_mp3Size, false);
+        soundPlayer.play(BinaryData::lost_mp3, BinaryData::lost_mp3Size);
         break;
 
     case REMOVE:
-        audioStream = new MemoryInputStream
-            (BinaryData::remove_mp3, BinaryData::remove_mp3Size, false);
+        soundPlayer.play(BinaryData::remove_mp3, BinaryData::remove_mp3Size);
         break;
 
     case START:
-        audioStream = new MemoryInputStream
-            (BinaryData::start_mp3, BinaryData::start_mp3Size, false);
+        soundPlayer.play(BinaryData::start_mp3, BinaryData::start_mp3Size);
         break;
 
     case WIN:
-        audioStream = new MemoryInputStream
-            (BinaryData::win_mp3, BinaryData::win_mp3Size, false);
+        soundPlayer.play(BinaryData::win_mp3, BinaryData::win_mp3Size);
         break;
 
     case TIE:
-        audioStream = new MemoryInputStream
-            (BinaryData::cpter_mp3, BinaryData::cpter_mp3Size, false);
+        soundPlayer.play(BinaryData::cpter_mp3, BinaryData::cpter_mp3Size);
         break;
 
     default:
         break;
     }
-
-    soundPlayer.play(audioStream);
 }
 

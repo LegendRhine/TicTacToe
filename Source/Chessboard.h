@@ -73,10 +73,14 @@ private:
     class ChessPiece : public Component
     {
     public:
-        ChessPiece(bool isHuman) : value(0), human(isHuman), first(false)  
+        ChessPiece(bool isHuman, SoundPlayer& player) 
+            : value(0), 
+            human(isHuman), 
+            first(false),
+            sound(player)
+
         {
-            sound.play(new MemoryInputStream
-                (BinaryData::human_mp3, BinaryData::human_mp3Size, false));
+            sound.play(BinaryData::human_mp3, BinaryData::human_mp3Size);
         }
         //======================================================================================
         ~ChessPiece()   
@@ -95,47 +99,26 @@ private:
             g.drawText(s, 0, 0, getWidth(), getHeight(), Justification::centred, false);
         }
         //======================================================================================
-        void resized()
-        { 
-            repaint(); 
-        }
-        //======================================================================================
+        void resized()        { repaint(); }
+
         // If received a mouse-click event, to prove that this grid has a chess piece.
         void mouseDown(const MouseEvent&)
         {
-            sound.play(new MemoryInputStream
-                (BinaryData::cpter_mp3, BinaryData::cpter_mp3Size, false));
-
-            AlertWindow::showMessageBox (AlertWindow::InfoIcon, 
-                TRANS("Emm"), TRANS("Here already have one."));
+            sound.play(BinaryData::cpter_mp3, BinaryData::cpter_mp3Size);
+            AlertWindow::showMessageBox (AlertWindow::InfoIcon, TRANS("Emm"), TRANS("Here already have one."));
         }
         //======================================================================================
-        void setValue(const int hasThisValue)
-        { 
-            value = hasThisValue; 
-        }        
-
-        const int getValue() const 
-        {
-            return value;
-        }
-
-        const bool isHuman() const 
-        {
-            return human;
-        }
-
-        void setFirst(const bool isFirst = false) 
-        { 
-            first = isFirst;
-        }
+        void setValue(const int hasThisValue)     { value = hasThisValue; }        
+        const int getValue() const                { return value; }
+        const bool isHuman() const                { return human; }
+        void setFirst(const bool isFirst = false) { first = isFirst; }
 
     private:
         int value;
         bool human; 
         bool first;
 
-        SoundPlayer sound;
+        SoundPlayer& sound;
 
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChessPiece)
     };  // nested class ChessPiece end..

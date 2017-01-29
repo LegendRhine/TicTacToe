@@ -30,6 +30,7 @@ public:
     SoundPlayer();
     ~SoundPlayer();   
 
+    void play(const void *resourceData, size_t resourceSize);
     void play(InputStream* inputStream);
     void play(const File& audioFile);
 

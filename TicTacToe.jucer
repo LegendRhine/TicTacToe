@@ -60,8 +60,8 @@
       <FILE id="lLpCqI" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="OejbPU" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
       <FILE id="Gul51l" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
-      <FILE id="rOlw6E" name="SoundPlayer.cpp" compile="1" resource="0" file="Source/SoundPlayer.cpp"/>
-      <FILE id="xxnGvk" name="SoundPlayer.h" compile="0" resource="0" file="Source/SoundPlayer.h"/>
+      <FILE id="mFBFiK" name="SoundPlayer.cpp" compile="1" resource="0" file="Source/SoundPlayer.cpp"/>
+      <FILE id="oZ2KV8" name="SoundPlayer.h" compile="0" resource="0" file="Source/SoundPlayer.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

@@ -31,7 +31,13 @@ SoundPlayer::~SoundPlayer()
     sourcePlayer.setSource (nullptr);
     deviceManager.removeAudioCallback(&sourcePlayer);
 }
-//=================================================================================
+//=================================================================================================
+void SoundPlayer::play(const void *resourceData, size_t resourceSize)
+{
+    play(new MemoryInputStream(resourceData, resourceSize, false));
+}
+
+//=================================================================================================
 void SoundPlayer::play(InputStream* inputStream)
 {
     stop(); 
