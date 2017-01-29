@@ -150,11 +150,11 @@ void Chessboard::timerCallback()
 const String Chessboard::getInfo() const
 {
     String s = String(humanWins) + " : " + String(cptWins);
-    s += '\t' + TRANS("Steps: ") + String(Chessboard::stepNumbers);
+    s += "    " + TRANS("Steps: ") + String(Chessboard::stepNumbers);
     
     if (0 != timeSet)
     {
-        s += " \t";
+        s += "    ";
         s += (humanTime < 10 ? TRANS("Timing:  0") : TRANS("Timing:  ")) 
             + String(humanTime);
     } 
@@ -604,7 +604,7 @@ void Chessboard::limitsTolose(bool isTimeOut)
 {
     animator.cancelAllAnimations(true);
     playSound(isTimeOut ? LOST : TIE);
-
+    stopTimer();
     String s = isTimeOut ? TRANS("Timeout!  You lose!") : TRANS("Step Limits! We tie!");
     AlertWindow::showMessageBox(AlertWindow::InfoIcon, TRANS("Sorry..."), s);
 
